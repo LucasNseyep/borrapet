@@ -1,2 +1,8 @@
-<h1>PlayDates#index</h1>
+<h1>Your PlayDates</h1>
 <p>Find me in app/views/play_dates/index.html.erb</p>
+<ul>
+  <% @play_dates.each do |play_date| %>
+  <%# LINK THROUGH THE PHOTO IN FINAL ONE %>
+  <li><%= play_date.start_time %> <%= play_date.end_time %></li>
+  <% end %>
+</ul>

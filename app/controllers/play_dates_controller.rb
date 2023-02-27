@@ -18,7 +18,9 @@ class PlayDatesController < ApplicationController
   end
 
   def index
+    @user = current_user
     @play_dates = PlayDate.all
+    @play_dates.select(params[:user_id].to_i)
   end
 
   private
