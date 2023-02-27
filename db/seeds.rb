@@ -12,7 +12,7 @@ User.destroy_all
 
 puts "Creating users"
 
-100.times do
+10.times do
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
   user = User.create(
