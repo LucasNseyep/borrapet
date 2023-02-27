@@ -2,7 +2,6 @@
 <p>Find me in app/views/pets/show.html.erb</p>
 <%= link_to "+ add new play date", new_pet_play_date_path(params[:id]) %>
 
-
 <ul class="list-group">
   <li><%= @pet.name %></li>
   <li><%= @pet.breed %></li>
@@ -10,7 +9,7 @@
   <li><%= @pet.bio %></li>
   <li><%= @user.description %></li>
 </ul>
-
+<br>
 <ul class="play_dates">
   <% @pet.play_dates.each do |play_date| %>
     <li><%= play_date.start_time %></li>
@@ -18,4 +17,5 @@
     <li><%= play_date.pet.name %></li>
   <li><% end %></li>
 </ul>
+<br>
 <%= link_to "view all available pets", pets_path %>

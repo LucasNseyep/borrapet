@@ -14,4 +14,7 @@ Rails.application.routes.draw do
   resources :pets do
     resources :play_dates
   end
+  resources :user do
+    resources :play_dates
+  end
 end
