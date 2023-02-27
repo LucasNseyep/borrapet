@@ -17,9 +17,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_27_141526) do
   create_table "pets", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "pet_type"
-    t.string "name"
-    t.string "breed"
-    t.string "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_pets_on_user_id"
@@ -55,7 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_27_141526) do
     t.string "first_name", default: "", null: false
     t.string "last_name", default: "", null: false
     t.string "address", default: "", null: false
-    t.string "description"
+    t.string "description", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
