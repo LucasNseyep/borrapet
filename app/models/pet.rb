@@ -5,5 +5,6 @@ class Pet < ApplicationRecord
   validates :name, presence: true
   validates :breed, presence: true
   validates :pet_type, presence: true
+  validates :bio, presence: true
   # validates :photo
 end
