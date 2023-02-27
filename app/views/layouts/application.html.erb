@@ -12,6 +12,8 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
   </head>
+  <%= button_to "sign out", destroy_user_session_path, method: :delete %>
+
 
   <body class="container mt-5">
     <%= yield %>
