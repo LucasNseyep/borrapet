@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'play_dates/create'
+  get 'play_dates/index'
   # get 'pets/index'
   # get 'pets/new'
   # get 'pets/create'
