@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 puts "Cleaning database..."
+Pet.destroy_all
 User.destroy_all
 
 puts "Creating users"
@@ -26,10 +27,27 @@ puts "Creating users"
   puts "#{first_name} #{last_name} was added!"
 end
 
-user_range = (User.first.id..User.last.id)
+puts "All done with the users!!"
+
+puts "\n\n\nCreating pets\n
+  __      _
+o'')}____//
+ `_/      )
+ (_(_/-(_/
+
+ \n\n\n"
 
 30.times do
-  
+  pet_name = Faker::Creature::Dog.name
+  pet = Pet.new(
+      user_id: rand(User.first.id..User.last.id),
+      pet_type: Faker::Creature::Animal.name,
+      breed: "Ask Carol",
+      name: pet_name,
+      bio: Faker::Lorem.paragraphs
+    )
+    pet.save
+  puts "Awww, #{pet_name} joined the platform xx"
 end
 
-puts "All done with the users"
+puts "All done with the pets!!"
