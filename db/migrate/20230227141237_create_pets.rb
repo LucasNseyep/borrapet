@@ -5,7 +5,7 @@ class CreatePets < ActiveRecord::Migration[7.0]
       t.string :pet_type
       t.string :name
       t.string :breed
-      t.string :description
+      t.string :bio
 
       t.timestamps
     end
