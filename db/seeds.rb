@@ -26,4 +26,10 @@ puts "Creating users"
   puts "#{first_name} #{last_name} was added!"
 end
 
+user_range = (User.first.id..User.last.id)
+
+30.times do
+  
+end
+
 puts "All done with the users"
