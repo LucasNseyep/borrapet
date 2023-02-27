@@ -3,5 +3,7 @@ class Pet < ApplicationRecord
   has_one_attached :photo
 
   validates :name, presence: true
-  validates :photo
+  validates :breed, presence: true
+  validates :pet_type, presence: true
+  # validates :photo
 end

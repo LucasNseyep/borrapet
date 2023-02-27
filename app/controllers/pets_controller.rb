@@ -1,4 +1,6 @@
 class PetsController < ApplicationController
+  # skip_before_action :authenticate_user!, only: :home
+
   def index
     @pets = Pet.all
   end
@@ -8,7 +10,14 @@ class PetsController < ApplicationController
   end
 
   def create
+    @user = current_user
     @pet = Pet.new(pet_params)
+    @pet.user = @user
+    if @pet.save
+      redirect_to pet_path(@pet)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def show
@@ -18,6 +27,10 @@ class PetsController < ApplicationController
   private
 
   def pet_params
-    params.require(:pet).permit(:pet_type, :photo)
+    params.require(:pet).permit(:pet_type, :name, :breed)
   end
+
+  # def find_user
+  #   @user = User.find(params[:user_id])
+  # end
 end
