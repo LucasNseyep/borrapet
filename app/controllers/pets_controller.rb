@@ -22,6 +22,7 @@ class PetsController < ApplicationController
 
   def show
     @pet = Pet.find(params[:id])
+    @user = current_user
   end
 
   private
