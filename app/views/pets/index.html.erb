@@ -1,4 +1,4 @@
-<h1>Pets#index</h1>
+<h1>BorrAPet!</h1>
 <p>Find me in app/views/pets/index.html.erb</p>
 <%= link_to "add your pet", new_pet_path %>
 <br>
@@ -11,13 +11,15 @@
 <div class="row">
   <% @pets.each do |pet| %>
     <div class="col-md-3">
-      <div class="card mb-3">
-        <img src="https://images.lifestyleasia.com/wp-content/uploads/sites/7/2021/03/02155402/photo-1610575828349-43f195e95452.jpeg" class="card-img-top img-fluid" alt="dog">
-        <div class="card-body">
-          <h3 class="card-title"><%= pet.name %></h3>
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui reprehenderit saepe perferendis ullam molestiae esse eveniet dignissimos dolores rem ipsum error iusto, quo non. Aspernatur ullam maiores veritatis reprehenderit? Corrupti?</p>
-          <%= link_to "BorrA Me!", pet_path(pet), class: "btn btn-primary" %>
-        </div>
+      <%= link_to pet_path(pet), class:"text-decoration-none" do %>
+        <div class="card mb-3">
+          <img src="https://miro.medium.com/max/650/0*zV9kLZ9GyYscLrhX.jpg" class="card-img-top img-fluid" alt="dog">
+          <div class="card-body">
+            <h3 class="card-title"><%= pet.name %></h3>
+            <h5 class="card-location">Location</h5>
+            <p class="card-rating">5⭐</p>
+          </div>
+        <% end %>
       </div>
     </div>
   <% end %>
