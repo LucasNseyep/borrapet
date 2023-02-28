@@ -8,6 +8,4 @@ class Pet < ApplicationRecord
   validates :pet_type, presence: true
   validates :bio, presence: true
   # validates :photo, presence: true
-
-  # validates :photo
 end

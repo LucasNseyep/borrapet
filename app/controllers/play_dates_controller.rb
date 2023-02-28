@@ -1,5 +1,6 @@
 class PlayDatesController < ApplicationController
   before_action :find_pet, only: [:create, :new]
+  # before_action :find_review, only: [:index]
 
   def new
     @play_date = PlayDate.new
@@ -21,6 +22,7 @@ class PlayDatesController < ApplicationController
     @user = current_user
     @play_dates = PlayDate.all
     @play_dates.select(params[:user_id].to_i)
+    @review = Review.select(params[:play_date_id].to_i)
   end
 
   private
@@ -32,4 +34,8 @@ class PlayDatesController < ApplicationController
   def find_pet
     @pet = Pet.find(params[:pet_id])
   end
+
+  # def find_review
+  #   @review = Review.find(params[:id])
+  # end
 end

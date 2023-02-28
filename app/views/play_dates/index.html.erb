@@ -1,8 +1,13 @@
 <h1>Your PlayDates</h1>
 <p>Find me in app/views/play_dates/index.html.erb</p>
+<%= link_to "view all available pets", pets_path %>
+
 <ul>
   <% @play_dates.each do |play_date| %>
   <%# LINK THROUGH THE PHOTO IN FINAL ONE %>
-  <li><%= play_date.start_time %> <%= play_date.end_time %> <%= play_date.pet.name %></li>
+  <li><%= play_date.start_time %> <%= play_date.end_time %>
+  <%= play_date.pet.name %>
+  <%= @review %>
+  <%= link_to "review your play date", new_play_date_review_path(play_date) %></li>
   <% end %>
 </ul>
