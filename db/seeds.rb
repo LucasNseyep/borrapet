@@ -62,6 +62,8 @@ o'')}____//
       breed: "~~~",
       name: pet_name,
       bio: description,
+      # NEED TO FIX THIS PHOTO SEED
+      photo: File.open(Rails.join('../storage/canterbury_spotted_skink_ryanphotography.1000x800.jpg'))
     )
     pet.save
   puts "Awww, #{pet_name} joined the platform xx"
