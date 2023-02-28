@@ -21,7 +21,8 @@ puts "Creating users"
     phone_number: Faker::PhoneNumber.cell_phone,
     first_name: first_name,
     last_name: last_name,
-    address:Faker::Address.full_address
+    address:Faker::Address.full_address,
+    description: Faker::Lorem.paragraphs
   )
 
   puts "#{first_name} #{last_name} was added!"
@@ -37,7 +38,7 @@ o'')}____//
 
  \n\n\n"
 
-30.times do
+5.times do
   pet_name = Faker::Creature::Dog.name
   pet = Pet.new(
       user_id: rand(User.first.id..User.last.id),

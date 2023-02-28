@@ -3,6 +3,6 @@
 <ul>
   <% @play_dates.each do |play_date| %>
   <%# LINK THROUGH THE PHOTO IN FINAL ONE %>
-  <li><%= play_date.start_time %> <%= play_date.end_time %></li>
+  <li><%= play_date.start_time %> <%= play_date.end_time %> <%= play_date.pet.name %></li>
   <% end %>
 </ul>

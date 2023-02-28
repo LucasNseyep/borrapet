@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'reviews/index'
+  get 'reviews/create'
+  get 'reviews/new'
   # get 'play_dates/create'
   # get 'play_dates/index'
   get 'pets/index'
