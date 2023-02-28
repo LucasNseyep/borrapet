@@ -11,3 +11,5 @@ class ApplicationController < ActionController::Base
                                       keys: %i[phone_number])
   end
 end
+
+#nothing to see here

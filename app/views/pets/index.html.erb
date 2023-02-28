@@ -1,12 +1,34 @@
-<h1>Pets#index</h1>
+<div class="fa-3x">
+  <div class="dog-container">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa fa-dog fa-stack-1x fa-inverse dog-icon"></i>
+    </span>
+    <h1>BorrAPet!</h1>
+  </div>
+</div>
+
+
+
 <p>Find me in app/views/pets/index.html.erb</p>
 <%= link_to "add your pet", new_pet_path %>
 <br>
 <%= link_to "see your playdates", user_play_dates_path(@user) %>
 
-<ul>
+
+<div class="row">
   <% @pets.each do |pet| %>
-  <%# LINK THROUGH THE PHOTO IN FINAL ONE %>
-  <li><%= link_to pet.name, pet_path(pet) %></li>
+    <div class="col-md-3">
+      <%= link_to pet_path(pet), class:"text-decoration-none" do %>
+        <div class="card mb-3">
+          <img src="https://miro.medium.com/max/650/0*zV9kLZ9GyYscLrhX.jpg" class="card-img-top img-fluid" alt="dog">
+          <div class="card-body">
+            <h3 class="card-title"><%= pet.name %></h3>
+            <h5 class="card-location">Location</h5>
+            <p class="card-rating">5⭐</p>
+          </div>
+        <% end %>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
