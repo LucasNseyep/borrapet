@@ -7,9 +7,10 @@
   <%# LINK THROUGH THE PHOTO IN FINAL ONE %>
   <li><%= play_date.start_time %> <%= play_date.end_time %>
   <%= play_date.pet.name %>
-  <% @reviews.each do |review| %>
-    <%= review.rating %>
-    <%= review.content %>
+  <% answers =  @reviews.select {|review| review.play_date_id == play_date[:id]}%>
+    <% answers.each do |answer| %>
+      <%= answer.rating %>
+      <%= answer.content %>
   <% end %>
   <%= link_to "review your play date", new_play_date_review_path(play_date) %></li>
   <% end %>
