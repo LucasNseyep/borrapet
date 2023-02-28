@@ -22,7 +22,8 @@ class PlayDatesController < ApplicationController
     @user = current_user
     @play_dates = PlayDate.all
     @play_dates.select(params[:user_id].to_i)
-    @review = Review.select(params[:play_date_id].to_i)
+    @reviews = Review.all
+    @reviews.select(params[:play_date_id].to_i)
   end
 
   private
