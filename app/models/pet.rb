@@ -1,7 +1,6 @@
 class Pet < ApplicationRecord
-  belongs_to :user, dependent: :destroy
-  has_many :play_dates
-  has_many :reviews, through: :playdate
+  belongs_to :user
+  has_many :play_dates, dependent: :destroy
   has_one_attached :photo
 
   validates :name, presence: true
