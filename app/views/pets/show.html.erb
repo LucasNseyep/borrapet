@@ -11,9 +11,12 @@
   <%= f.button :submit %>
 <% end %>
 
+<h2>pet play-date rating</h2>
+<h2><%= @pet.average %> </h2>
 
+<br>
 <ul class="list-group">
-  <li><%= @pet.name %></li>
+  <li><h4><%= @pet.name %></h4></li>
   <li><%= @pet.breed %></li>
   <li><%= @pet.pet_type %></li>
   <li><%= @pet.bio %></li>
@@ -22,10 +25,19 @@
 <br>
 <ul class="play_dates">
   <% @pet.play_dates.each do |play_date| %>
+    <li><h3><%= play_date.pet.name %></h3></li>
     <li><%= play_date.start_time %></li>
     <li><%= play_date.end_time %></li>
-    <li><%= play_date.pet.name %></li>
-  <li><% end %></li>
+    <br>
+    <li><h4>reviews</h4></li>
+    <% answers =  @reviews.select {|review| review.play_date_id == play_date[:id]}%>
+    <% answers.each do |answer| %>
+      <li><%= answer.rating %></li>
+      <li><%= answer.content %></li>
+    <% end %>
+  <% end %>
+  <br>
+  <br>
 </ul>
 <br>
 <%= link_to "view all available pets", pets_path %>
