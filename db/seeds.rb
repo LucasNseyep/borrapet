@@ -6,11 +6,14 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+require 'date'
+
 puts "Cleaning database..."
 Pet.destroy_all
 User.destroy_all
+PlayDate.destroy_all
 
-puts "Creating Marco"
+puts "Marco is signing up"
 
 user = User.create(
   email: "marco@borrapet.com",
@@ -21,7 +24,7 @@ user = User.create(
   address:Faker::Address.full_address
 )
 
-puts "Other Users"
+puts "Other users are signing up as well :O"
 
 35.times do
   first_name = Faker::Name.first_name
@@ -38,9 +41,9 @@ puts "Other Users"
   puts "#{first_name} #{last_name} joined the platform!"
 end
 
-puts "All the users have been added!"
+puts "All the users have signed up!"
 
-puts "\n\n\nCreating pets\n
+puts "\n\n\nLooks like a sad dating app in here, let's add some pets ♥♥♥\n
   __      _
 o'')}____//
  `_/      )
@@ -48,25 +51,42 @@ o'')}____//
 
  \n\n\n"
 
+ description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
 
-7.times do
+10.times do
   pet_name = Faker::Creature::Dog.name
   pet = Pet.new(
       user_id: rand(User.first.id..User.last.id),
       pet_type: Faker::Creature::Animal.name,
       breed: "Ask Carol",
       name: pet_name,
-      bio: Faker::Lorem.paragraphs
+      bio: description,
     )
     pet.save
   puts "Awww, #{pet_name} joined the platform xx"
 end
 
-puts "Pets are in"
+puts "Who let the pets in XD"
 
-# puts "Organising some playdates with our furry friends"
+puts "Organising some playdates with furry friends"
 
-# 21.times do
-#   user = rand(User.first.id..User.last.id)
-#   pet = rand(Pet.first.id..Pet.last.id)
-# end
+5.times do
+  user = rand(User.first.id..User.last.id)
+  pet = rand(Pet.first.id..Pet.last.id)
+  date_start = Time.now.beginning_of_day + 10.hours + rand(0..30).days
+  date_end = date_start + 7.hours + rand(0..14).days
+
+  play_date = PlayDate.new(
+    user_id: user,
+    pet_id: pet,
+    start_time: date_start,
+    end_time: date_end,
+  )
+  play_date.save
+
+  puts "#{play_date.user.first_name} has a date with #{play_date.pet.name} xoxo"
+end
+
+puts "Dates have been organised"
+
+puts "All done :)"
