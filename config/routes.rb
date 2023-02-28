@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  # get 'play_dates/create'
-  # get 'play_dates/index'
-  get 'pets/index'
-  get 'pets/new'
+  # get 'reviews/index'
+  # get 'reviews/create'
+  # get 'reviews/new'
+  # # get 'play_dates/create'
+  # # get 'play_dates/index'
+  # get 'pets/index'
+  # get 'pets/new'
   # get 'pets/create'
   # get 'pets/show'
   devise_for :users
@@ -14,7 +17,11 @@ Rails.application.routes.draw do
   resources :pets do
     resources :play_dates
   end
+  resources :play_dates do
+    resources :reviews, only: [:create, :new]
+  end
   resources :user do
     resources :play_dates
+      # resources :reviews, only: [:create, :new]
   end
 end

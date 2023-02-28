@@ -35,7 +35,8 @@ puts "Other users are signing up as well :O"
     phone_number: Faker::PhoneNumber.cell_phone,
     first_name: first_name,
     last_name: last_name,
-    address:Faker::Address.full_address
+    address:Faker::Address.full_address,
+    description: Faker::Lorem.paragraphs
   )
 
   puts "#{first_name} #{last_name} joined the platform!"
@@ -51,7 +52,6 @@ o'')}____//
 
  \n\n\n"
 
- description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
 
 10.times do
   pet_name = Faker::Creature::Dog.name
