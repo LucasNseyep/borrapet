@@ -4,9 +4,32 @@
 <br>
 <%= link_to "see your playdates", user_play_dates_path(@user) %>
 
+
+<%# url(https://images.lifestyleasia.com/wp-content/uploads/sites/7/2021/03/02155402/photo-1610575828349-43f195e95452.jpeg) %>
+
+
+<div class="row">
+  <% @pets.each do |pet| %>
+    <div class="col-md-3">
+      <div class="card mb-3">
+        <img src="https://images.lifestyleasia.com/wp-content/uploads/sites/7/2021/03/02155402/photo-1610575828349-43f195e95452.jpeg" class="card-img-top img-fluid" alt="dog">
+        <div class="card-body">
+          <h3 class="card-title"><%= pet.name %></h3>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui reprehenderit saepe perferendis ullam molestiae esse eveniet dignissimos dolores rem ipsum error iusto, quo non. Aspernatur ullam maiores veritatis reprehenderit? Corrupti?</p>
+          <%= link_to "BorrA Me!", pet_path(pet), class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
 <ul>
   <% @pets.each do |pet| %>
   <%# LINK THROUGH THE PHOTO IN FINAL ONE %>
-  <li><%= link_to pet.name, pet_path(pet) %></li>
+  <li>
+    <%= link_to pet.name, pet_path(pet) %>
+  </li>
   <% end %>
 </ul>
