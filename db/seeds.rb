@@ -58,7 +58,7 @@ o'')}____//
   pet = Pet.new(
       user_id: rand(User.first.id..User.last.id),
       pet_type: Faker::Creature::Animal.name,
-      breed: "Ask Carol",
+      breed: "~~~",
       name: pet_name,
       bio: description,
     )
