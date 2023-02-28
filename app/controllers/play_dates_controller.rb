@@ -1,5 +1,5 @@
 class PlayDatesController < ApplicationController
-  before_action :find_pet, only: [:create, :new]
+  before_action :find_pet, only: %i[create new]
   # before_action :find_review, only: [:index]
 
   def new
