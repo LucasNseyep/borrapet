@@ -12,8 +12,8 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
   </head>
-  <%= button_to "sign up", new_user_registration_path %>
-  <%= button_to "sign in", user_session_path %>
+  <%= link_to "sign in", user_session_path %>
+  <%= link_to "sign up", new_user_registration_path %>
   <%= button_to "sign out", destroy_user_session_path, method: :delete %>
 
 
