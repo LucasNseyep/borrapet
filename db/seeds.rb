@@ -10,9 +10,20 @@ puts "Cleaning database..."
 Pet.destroy_all
 User.destroy_all
 
-puts "Creating users"
+puts "Creating Marco"
 
-10.times do
+user = User.create(
+  email: "marco@borrapet.com",
+  password: "1234567",
+  phone_number: Faker::PhoneNumber.cell_phone,
+  first_name: "Marco",
+  last_name: "Marco",
+  address:Faker::Address.full_address
+)
+
+puts "Other Users"
+
+35.times do
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
   user = User.create(
@@ -24,10 +35,10 @@ puts "Creating users"
     address:Faker::Address.full_address
   )
 
-  puts "#{first_name} #{last_name} was added!"
+  puts "#{first_name} #{last_name} joined the platform!"
 end
 
-puts "All done with the users!!"
+puts "All the users have been added!"
 
 puts "\n\n\nCreating pets\n
   __      _
@@ -37,7 +48,8 @@ o'')}____//
 
  \n\n\n"
 
-30.times do
+
+7.times do
   pet_name = Faker::Creature::Dog.name
   pet = Pet.new(
       user_id: rand(User.first.id..User.last.id),
@@ -50,4 +62,11 @@ o'')}____//
   puts "Awww, #{pet_name} joined the platform xx"
 end
 
-puts "All done with the pets!!"
+puts "Pets are in"
+
+# puts "Organising some playdates with our furry friends"
+
+# 21.times do
+#   user = rand(User.first.id..User.last.id)
+#   pet = rand(Pet.first.id..Pet.last.id)
+# end
