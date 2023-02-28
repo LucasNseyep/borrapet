@@ -32,14 +32,3 @@
     </div>
   <% end %>
 </div>
-
-
-
-<ul>
-  <% @pets.each do |pet| %>
-  <%# LINK THROUGH THE PHOTO IN FINAL ONE %>
-  <li>
-    <%= link_to pet.name, pet_path(pet) %>
-  </li>
-  <% end %>
-</ul>
