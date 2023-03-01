@@ -1,5 +1,6 @@
 
 <h1><%= @pet.name %> the <%= @pet.pet_type.capitalize %></h1>
+<%= link_to "See your playdates", user_play_dates_path(@user) %>
 
 <%# <%= link_to "see your playdates", user_play_dates_path(@user) %>
 <p>Book a playdate with <%= @pet.name %>:</p>
@@ -13,17 +14,25 @@
 <% end %>
 </div>
 
+<!--
 <h2>pet play-date rating</h2>
 <h2><%= @pet.average %> </h2>
+-->
 
-<ul class="list-group">
-  <li>Name: <%= @pet.name %></li>
-  <li>Breed: <%= @pet.breed %></li>
-  <li>Type: <%= @pet.pet_type %></li>
-  <li>Bio: <%= @pet.bio %></li>
-  <li>User description: <%= @user.description %></li>
-</ul>
+<h2 class="mb-3 mt-3">Pet's information</h2>
+  <p class="fs-6 fw-bold mb-0">Name</p>
+  <p><%= @pet.name %></p>
+  <p class="fs-6 fw-bold mb-0">Type</p>
+  <p><%= @pet.pet_type.capitalize %></p>
+  <p class="fs-6 fw-bold mb-0">Breed</p>
+  <p><%= @pet.breed %></p>
+  <p class="fs-6 fw-bold mb-0">About pet</p>
+  <p><%= @pet.bio %></p>
+  <p class="fs-6 fw-bold mb-0">About owner</p>
+  <p><%= @user.description %>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
 <br>
+<!--
 <ul class="list-group">
 <% @pet.play_dates.each do |play_date| %>
   <h4> Your playdate with <%= play_date.pet.name %>: </h4>
@@ -31,7 +40,25 @@
   <li> End time: <%= play_date.end_time %></li>
 <% end %>
 </ul>
-<br>
+-->
+
+<h2>Playdates</h2>
+<div class="row">
+  <% @pet.play_dates.each do |play_date| %>
+  <div class="col-md-3">
+    <div class="card border border-secondary-subtle mb-3 mt-3 " style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Your playdate with <%= play_date.pet.name %></h5>
+        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+        <p class="card-text"> Starting at: <%= play_date.start_time %></p>
+        <p class="card-text"> Finishing at: <%= play_date.end_time %></p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+<!--
 <h4>reviews</h4>
 <ul>
   <% answers =  @reviews.select {|review| review.play_date_id == play_date[:id]}%>
