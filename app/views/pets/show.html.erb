@@ -10,7 +10,7 @@
   <%= f.input :start_time %>
   <%= f.input :end_time %>
   <%# <%= f.input :photo, as: :file %>
-  <%= f.button :submit %>
+  <div class="btn btn-outline-success index-button m-2"><%= f.button :submit %></div>
 <% end %>
 </div>
 
@@ -68,6 +68,4 @@
   <% end %>
 </ul>
 <br>
--->
-
-<%= link_to "View pets", pets_path %>
+<div class="btn btn-outline-success index-button mx-4"><%= link_to "Back to all pets", pets_path %></div>
