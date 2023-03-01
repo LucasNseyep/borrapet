@@ -1,3 +1,3 @@
 class Review < ApplicationRecord
-  belongs_to :playdate
+  belongs_to :play_date
 end
