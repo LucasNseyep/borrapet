@@ -1,13 +1,21 @@
 <h1>Your PlayDates</h1>
 <br>
-<% if @playdates.nil? %>
+<% if @play_dates.nil? %>
   <p>You don't have any playdates...</p>
   <% else %>
-    <ul>
-    <% @play_dates.each do |play_date| %>
-    <li><%= play_date.start_time %> <%= play_date.end_time %>
-    <%= play_date.pet.name %>
-    <% end %>
-  </ul>
+  <div class="row">
+  <% @play_dates.each do |play_date| %>
+    <div class="col-md-3">
+      <div class="card border border-secondary-subtle mb-3 mt-3 " style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Your playdate with <%= play_date.pet.name %></h5>
+          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text"> Starting at: <%= play_date.start_time %></p>
+          <p class="card-text"> Finishing at: <%= play_date.end_time %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
 <% end %>
 <%= link_to "Back to all pets", pets_path %>
