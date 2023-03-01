@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon height-3 fixed-top">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon height-3 fixed-top ">
   <div class="container-fluid">
     <%= link_to "/#", class: "navbar-brand fw-bolder" do %>
       <div class="dog-container">
@@ -29,10 +29,10 @@
         <% if user_signed_in? %>
           <li class="nav-item dropdown h-100">
             <div class="dropdown-toggle menu-profile h-100" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img class="avatar dropdown-toggle" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+              <img id="avatar" class="avatar dropdown-toggle" src="https://kitt.lewagon.com/placeholder/users/ssaunier"/>
               <span class="navbar-toggler-icon"></span>
             </div>
-              <div class="dropdown-menu dropdown-menu-end mt-4" aria-labelledby="navbarDropdown">
+              <div class="dropdown-menu dropdown-menu-end mt-3" aria-labelledby="navbarDropdown">
                 <%= link_to "Add Your Pet", new_pet_path, class: "dropdown-item" %>
                 <%= link_to "See Your PlayDates", "/user/[:id]/play_dates", class: "dropdown-item" %>
                 <%= link_to "View Available Pets", "/pets", class: "dropdown-item" %>
