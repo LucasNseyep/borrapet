@@ -20,7 +20,8 @@
     <div class="col-md-3">
       <%= link_to pet_path(pet), class:"text-decoration-none" do %>
         <div class="card mb-3">
-          <img src="https://miro.medium.com/max/650/0*zV9kLZ9GyYscLrhX.jpg" class="card-img-top img-fluid" alt="dog">
+          <%= cl_image_tag pet.photo.key, height: 300, width: 400, crop: :fill %>
+          <%# <img src="https://miro.medium.com/max/650/0*zV9kLZ9GyYscLrhX.jpg" class="card-img-top img-fluid" alt="dog"> %>
           <div class="card-body">
             <h3 class="card-title"><%= pet.name %></h3>
             <h5 class="card-location">Location</h5>

@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require 'date'
+require 'open-uri'
 
 puts "Cleaning database..."
 Pet.destroy_all
@@ -26,7 +27,7 @@ user = User.create(
 
 puts "Other users are signing up as well :O"
 
-35.times do
+5.times do
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
   user = User.create(
@@ -54,8 +55,10 @@ o'')}____//
 
  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
 
+
 10.times do
   pet_name = Faker::Creature::Dog.name
+  file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Garden_skink.jpg/1024px-Garden_skink.jpg")
   pet = Pet.new(
       user_id: rand(User.first.id..User.last.id),
       pet_type: Faker::Creature::Animal.name,
@@ -63,7 +66,8 @@ o'')}____//
       name: pet_name,
       bio: description,
     )
-    pet.save
+  pet.photo.attach(io: file, filename: "skink.jpg", content_type: "image/jpg")
+  pet.save
   puts "Awww, #{pet_name} joined the platform xx"
 end
 

@@ -19,6 +19,7 @@
   <li>Breed: <%= @pet.breed %></li>
   <li>Type: <%= @pet.pet_type %></li>
   <li>Bio: <%= @pet.bio %></li>
+  <li>Photo: <%= cl_image_tag @pet.photo.key, height: 300, width: 400, crop: :fill %></li>
   <li>User description: <%= @user.description %></li>
 </ul>
 <br>
