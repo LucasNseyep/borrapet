@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :play_dates, through: :pets
+  has_many :play_dates
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
