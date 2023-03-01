@@ -26,7 +26,7 @@ user = User.create(
 
 puts "Other users are signing up as well :O"
 
-35.times do
+10.times do
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
   user = User.create(
@@ -54,7 +54,7 @@ o'')}____//
 
  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
 
-10.times do
+5.times do
   pet_name = Faker::Creature::Dog.name
   pet = Pet.new(
       user_id: rand(User.first.id..User.last.id),
@@ -63,7 +63,7 @@ o'')}____//
       name: pet_name,
       bio: description,
       # NEED TO FIX THIS PHOTO SEED
-      photo: File.open(Rails.join('../storage/canterbury_spotted_skink_ryanphotography.1000x800.jpg'))
+      photo: File.open(Rails.root.join('1800.jpg'))
     )
     pet.save
   puts "Awww, #{pet_name} joined the platform xx"
