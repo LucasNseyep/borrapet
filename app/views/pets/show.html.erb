@@ -1,15 +1,17 @@
 
-<h1><%= @pet.name %> the <%= @pet.pet_type %></h1>
-<%# <%= link_to "+ add new play date", new_pet_play_date_path(params[:id]) %> %>
-<%= link_to "see your playdates", user_play_dates_path(@user) %>
+<h1><%= @pet.name %> the <%= @pet.pet_type.capitalize %></h1>
 
+<%# <%= link_to "see your playdates", user_play_dates_path(@user) %>
+<p>Book a playdate with <%= @pet.name %>:</p>
 
+<div class="">
 <%= simple_form_for [@pet, @play_date] do |f| %>
   <%= f.input :start_time %>
   <%= f.input :end_time %>
   <%# <%= f.input :photo, as: :file %>
   <%= f.button :submit %>
 <% end %>
+</div>
 
 <h2>pet play-date rating</h2>
 <h2><%= @pet.average %> </h2>

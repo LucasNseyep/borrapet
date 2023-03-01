@@ -1,19 +1,13 @@
 <h1>Your PlayDates</h1>
-<p>Find me in app/views/play_dates/index.html.erb</p>
-<%= link_to "view all available pets", pets_path %>
-
-<ul>
-  <% @play_dates.each do |play_date| %>
-  <%# LINK THROUGH THE PHOTO IN FINAL ONE %>
-  <li><%= play_date.start_time %> <%= play_date.end_time %>
-  <%= play_date.pet.name %>
-  <!--
-  <% answers =  @reviews.select {|review| review.play_date_id == play_date[:id]}%>
-    <% answers.each do |answer| %>
-      <%= answer.rating %>
-      <%= answer.content %>
-  <% end %>
-  <%= link_to "review your play date", new_play_date_review_path(play_date) %></li>
-  -->
-  <% end %>
-</ul>
+<br>
+<% if @playdates.nil? %>
+  <p>You don't have any playdates...</p>
+  <% else %>
+    <ul>
+    <% @play_dates.each do |play_date| %>
+    <li><%= play_date.start_time %> <%= play_date.end_time %>
+    <%= play_date.pet.name %>
+    <% end %>
+  </ul>
+<% end %>
+<%= link_to "Back to all pets", pets_path %>
