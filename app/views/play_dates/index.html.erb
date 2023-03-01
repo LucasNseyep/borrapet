@@ -2,18 +2,30 @@
 <p>Find me in app/views/play_dates/index.html.erb</p>
 <%= link_to "view all available pets", pets_path %>
 
+<!--
 <ul>
   <% @play_dates.each do |play_date| %>
   <%# LINK THROUGH THE PHOTO IN FINAL ONE %>
   <li><%= play_date.start_time %> <%= play_date.end_time %>
   <%= play_date.pet.name %>
-  <!--
   <% answers =  @reviews.select {|review| review.play_date_id == play_date[:id]}%>
     <% answers.each do |answer| %>
       <%= answer.rating %>
       <%= answer.content %>
   <% end %>
   <%= link_to "review your play date", new_play_date_review_path(play_date) %></li>
-  -->
+  </li>
   <% end %>
 </ul>
+-->
+
+<% @play_dates.each do |play_date| %>
+<div class="card border border-secondary-subtle rounded-2" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Your playdate with <%= play_date.pet.name %></h5>
+    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+    <p class="card-text"> Start_time: <%= play_date.start_time %></p>
+    <p class="card-text"> End time: <%= play_date.end_time %></p>
+  </div>
+</div>
+<% end %>
