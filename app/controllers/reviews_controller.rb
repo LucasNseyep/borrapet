@@ -18,12 +18,12 @@ class ReviewsController < ApplicationController
     # #   filter.id != @review.play_date_id
     # # end
     # raise
-      if @review.save
-        redirect_to user_play_dates_path(@user)
-      else
-        render :new, status: :unprocessable_entity
-      end
-    # end
+    if @review.save
+      redirect_to pet_path(@play_date[:pet_id])
+    else
+      # render :new, status: :unprocessable_entity
+      redirect_to pet_path(@play_date[:pet_id])
+    end
   end
 
   def new
