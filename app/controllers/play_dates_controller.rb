@@ -8,22 +8,36 @@ class PlayDatesController < ApplicationController
 
   def create
     @user = current_user
+    @all_play_dates = PlayDate.all
     @play_date = PlayDate.new(play_date_params)
     @play_date.user = @user
     @play_date.pet = @pet
-    if @play_date.save
-      redirect_to pet_path(@pet)
+
+
+    @start_time = @play_date.start_time
+    @end_time = @play_date.end_time
+    found = false
+
+    @all_play_dates.each do |date|
+      starts = date.start_time
+      ends = date.end_time
+      if @start_time.between?(starts, ends) || @end_time.between?(starts, ends)
+        if date.pet_id == @play_date.pet_id
+          found = true
+        end
+      end
+    end
+
+    if found == true
+      redirect_to pet_path(@pet), notice: "Sorry this pet is booked between these times"
     else
-      render :new, status: :unprocessable_entity
+      @play_date.save
+      redirect_to pet_path(@pet)
     end
   end
 
   def index
     @play_dates = current_user.play_dates
-    # @play_dates = PlayDate.all
-    # @play_dates.select(params[:user_id].to_i)
-    # @reviews = Review.all
-    # @reviews.select(params[:play_date_id].to_i)
   end
 
   private
@@ -35,8 +49,4 @@ class PlayDatesController < ApplicationController
   def find_pet
     @pet = Pet.find(params[:pet_id])
   end
-
-  # def find_review
-  #   @review = Review.find(params[:id])
-  # end
 end
