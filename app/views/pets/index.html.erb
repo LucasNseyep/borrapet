@@ -1,18 +1,11 @@
-<div class="fa-3x">
-  <div class="dog-container">
-    <span class="fa-stack fa-lg">
-      <i class="fa fa-circle fa-stack-2x"></i>
-      <i class="fa fa-dog fa-stack-1x fa-inverse dog-icon"></i>
-    </span>
-    <h1>BorrAPet!</h1>
-  </div>
+<h1 class="d-flex justify-content-center mb-4">All Pets</h1>
+
+<div class="d-flex justify-content-center">
+<div class="btn btn-outline-success index-button mx-4"><%= link_to "Add your pet", new_pet_path %></div>
+<div class="btn btn-outline-success index-button mx-4"><%= link_to "See your playdates", user_play_dates_path(@user) %></div>
 </div>
-
-
-<p>Find me in app/views/pets/index.html.erb</p>
-<%= link_to "add your pet", new_pet_path %>
 <br>
-<%= link_to "see your playdates", user_play_dates_path(@user) %>
+<br>
 
 
 <div class="row">

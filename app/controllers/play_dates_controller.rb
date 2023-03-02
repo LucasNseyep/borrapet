@@ -19,11 +19,11 @@ class PlayDatesController < ApplicationController
   end
 
   def index
-    @user = current_user
-    @play_dates = PlayDate.all
-    @play_dates.select(params[:user_id].to_i)
-    @reviews = Review.all
-    @reviews.select(params[:play_date_id].to_i)
+    @play_dates = current_user.play_dates
+    # @play_dates = PlayDate.all
+    # @play_dates.select(params[:user_id].to_i)
+    # @reviews = Review.all
+    # @reviews.select(params[:play_date_id].to_i)
   end
 
   private
