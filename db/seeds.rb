@@ -27,7 +27,7 @@ user = User.create(
 
 puts "Other users are signing up as well :O"
 
-5.times do
+35.times do
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
   user = User.create(
