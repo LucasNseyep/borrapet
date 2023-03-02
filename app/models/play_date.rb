@@ -9,7 +9,7 @@ class PlayDate < ApplicationRecord
   validates :start_time, :end_time, presence: true
   validates :start_time, :end_time, uniqueness: true
 
-  validates :review, uniqueness: { scope: :pet }
+  # validates :reviews, uniqueness: { scope: :user }
 
   # def available
   #   # start_time = self.start_time

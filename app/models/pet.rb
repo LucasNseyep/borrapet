@@ -1,5 +1,5 @@
 class Pet < ApplicationRecord
-  validate :available?
+  # validate :available?
 
   belongs_to :user
   has_many :play_dates, dependent: :destroy
