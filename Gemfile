@@ -48,8 +48,9 @@ gem "bootsnap", require: false
 
 gem "bootstrap"
 
+gem "cloudinary"
+
 gem "font-awesome-sass", "~> 6.1"
-gem "simple_form", github: "heartcombo/simple_form"
 # gem "sassc-rails"
 
 # Use Sass to process CSS
@@ -59,7 +60,6 @@ gem "sassc-rails"
 # gem "image_processing", "~> 1.2"
 
 gem "autoprefixer-rails"
-gem "font-awesome-sass", "~> 6.1"
 
 gem "faker"
 group :development, :test do
