@@ -1,0 +1,26 @@
+.footer-container {
+  background-color: #F3EBE6;
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer {
+  font-size: 18px;
+  margin: 0 8px;
+  text-align: center;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: #16171B;
+}
+
+.footer-link:hover {
+  color: #4B7246;
+}
+
+.green-heart {
+  color: #4B7246;
+}
