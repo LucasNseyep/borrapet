@@ -1,7 +1,12 @@
 .index-button a {
-  text-decoration: inherit;
-  // color: white;
-  color: inherit;
+  color: white;
+  font-size: larger;
+  font-weight: 400;
+  text-decoration: none;
+  background-color: #B57945;
+  padding-inline: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .index-button:hover {
