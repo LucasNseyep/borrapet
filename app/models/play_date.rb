@@ -7,7 +7,13 @@ class PlayDate < ApplicationRecord
   validates :start_time, :end_time, presence: true
   validates :start_time, :end_time, uniqueness: true
 
-  # def is_available?
-  #   @play_dates
-  # end
+  include PgSearch::Model
+  pg_search_scope :playdate_search,
+    against: [ :start_time, :end_time ],
+    associated_against: {
+      pet: [ :name, :bio ]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
 end

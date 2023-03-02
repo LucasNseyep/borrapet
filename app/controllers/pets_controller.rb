@@ -23,6 +23,7 @@ class PetsController < ApplicationController
 
   def show
     @pet = Pet.find(params[:id])
+    @play_dates = current_user.play_dates.where(pet: @pet)
     @user = current_user
     @play_date = PlayDate.new
     @reviews = Review.all

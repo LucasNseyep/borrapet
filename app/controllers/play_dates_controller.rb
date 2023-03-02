@@ -20,10 +20,11 @@ class PlayDatesController < ApplicationController
 
   def index
     @play_dates = current_user.play_dates
-    # @play_dates = PlayDate.all
-    # @play_dates.select(params[:user_id].to_i)
-    # @reviews = Review.all
-    # @reviews.select(params[:play_date_id].to_i)
+    if params[:query].present?
+      @play_dates = current_user.play_dates.playdate_search(params[:query])
+    else
+      @play_dates = current_user.play_dates
+    end
   end
 
   private

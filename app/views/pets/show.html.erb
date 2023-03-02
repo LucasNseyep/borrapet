@@ -24,14 +24,14 @@
 
 <h2 class="mt-3">Playdates</h2>
 <div class="row">
-  <% if @pet.play_dates.present? %>
-      <% @pet.play_dates.each do |play_date| %>
+  <% if @play_dates.present? %>
+      <% @play_dates.each do |play_date| %>
       <div class="col-md-3">
         <div class="card border border-secondary-subtle mb-3 mt-3 " style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">Your playdate with <%= play_date.pet.name %></h5>
-            <p class="card-text"> Starting at: <%= play_date.start_time.strftime("%B %d %Y") %></p>
-            <p class="card-text"> Finishing at: <%= play_date.end_time.strftime("%B %d %Y") %></p>
+            <p class="card-text"> Starting at: <%= play_date.start_time %></p>
+            <p class="card-text"> Finishing at: <%= play_date.end_time %></p>
           </div>
         </div>
       </div>
