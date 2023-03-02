@@ -88,6 +88,16 @@
   color: black;
 }
 
+.linktos {
+  color: #0088ff;
+  text-decoration: none;
+
+}
+
+.linktos a:hover {
+  text-decoration: underline;
+  color: #0076dd;
+}
 /* login link */
 // #form-login a {
 //   color: #0189ff;
