@@ -1,5 +1,5 @@
 .footer-container {
-  background-color: #F3EBE6;
+  background-color: #41322B;
   height: 8vh;
   display: flex;
   justify-content: center;
@@ -10,15 +10,17 @@
   font-size: 18px;
   margin: 0 8px;
   text-align: center;
+  color: #F3EBE6;
 }
 
 .footer-link {
   text-decoration: none;
-  color: #16171B;
+  color: #F3EBE6;
 }
 
 .footer-link:hover {
   color: #4B7246;
+  text-decoration: underline;
 }
 
 .green-heart {
