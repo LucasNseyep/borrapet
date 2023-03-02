@@ -30,7 +30,11 @@
   <p><%= @pet.bio %></p>
   <p class="fs-6 fw-bold mb-0">About owner</p>
   <p><%= @user.description %>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
+  <% if @pet.photo.attached? == false %>
+    <img src="https://miro.medium.com/max/650/0*zV9kLZ9GyYscLrhX.jpg" alt="dog">
+  <% else %>
+    <%= cl_image_tag @pet.photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
 <br>
 <!--
 <ul class="list-group">
