@@ -1,6 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon height-3 fixed-top ">
   <div class="container-fluid">
-    <%= link_to "/#", class: "navbar-brand fw-bolder" do %>
+    <%= link_to user_signed_in? ? "/pets" : "/", class: "navbar-brand fw-bolder" do %>
+         <%#= link_to "/pets", class: "navbar-brand fw-bolder" do %>
       <div class="dog-container">
         <span class="fa-stack fa-md">
           <i class="fa fa-circle fa-stack-2x"></i>
@@ -24,21 +25,27 @@
     </form>
 
     <%# Drop Down %>
-    <div class="collapse navbar-collapse h-100" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto h-100">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
+        <%# <div> %>
+          <li class="nav-items-group" >
+            <%= link_to "+", new_pet_path, :class=>"nav-items-list plus", :style=>"text-decoration: none;" %>
+            <%= link_to "My PlayDates", "/user/[:id]/play_dates", :class=>"nav-items-list", :style=>"text-decoration: none;" %>
+          </li>
           <li class="nav-item dropdown h-100">
             <div class="dropdown-toggle menu-profile h-100" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <img id="avatar" class="avatar dropdown-toggle" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"/>
               <span class="navbar-toggler-icon"></span>
             </div>
               <div class="dropdown-menu dropdown-menu-end mt-3" aria-labelledby="navbarDropdown">
-                <%= link_to "Add Your Pet", new_pet_path, class: "dropdown-item" %>
-                <%= link_to "See Your PlayDates", "/user/[:id]/play_dates", class: "dropdown-item" %>
+                <%# <%= link_to "Add Your Pet", new_pet_path, class: "dropdown-item" %>
+                <%# <%= link_to "See Your PlayDates", "/user/[:id]/play_dates", class: "dropdown-item" %>
                 <%= link_to "View Available Pets", "/pets", class: "dropdown-item" %>
                 <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item btn-log-out", data: {turbo_method: :delete} %>
               </div>
           </li>
+        <%# </div> %>
         <% else %>
           <li class="nav-item d-flex">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
