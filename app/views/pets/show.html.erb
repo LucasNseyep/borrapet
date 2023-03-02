@@ -62,15 +62,3 @@
   </div>
   <% end %>
 </div>
-
-<!--
-<h4>reviews</h4>
-<ul>
-  <% answers =  @reviews.select {|review| review.play_date_id == play_date[:id]}%>
-  <% answers.each do |answer| %>
-    <li><%= answer.rating %></li>
-    <li><%= answer.content %></li>
-  <% end %>
-</ul>
-<br>
-<div class="btn btn-outline-success index-button mx-4"><%= link_to "Back to all pets", pets_path %></div>
