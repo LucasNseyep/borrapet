@@ -13,7 +13,6 @@ class PlayDatesController < ApplicationController
     @play_date.user = @user
     @play_date.pet = @pet
 
-
     @start_time = @play_date.start_time
     @end_time = @play_date.end_time
     found = false

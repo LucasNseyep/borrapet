@@ -10,6 +10,10 @@ class PetsController < ApplicationController
     @pet = Pet.new
   end
 
+  def edit
+    @pet = Pet.find(params[:id])
+  end
+
   def create
     @user = current_user
     @pet = Pet.new(pet_params)
@@ -26,6 +30,11 @@ class PetsController < ApplicationController
     @user = current_user
     @play_date = PlayDate.new
     @reviews = Review.all
+  end
+
+  def update
+    @pet.update(pet_params)
+    redirect_to pet_path(@pet)
   end
 
   private

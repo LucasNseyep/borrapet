@@ -1,0 +1,11 @@
+<h1>Update a pet</h1>
+<p>Find me in app/views/pets/new.html.erb</p>
+<%= simple_form_for(@pet) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :pet_type %>
+  <%= f.input :breed %>
+  <%= f.input :bio %>
+  <%= f.input :photo, as: :file %>
+  <%# <%= f.input :photo, as: :file %>
+  <div class="btn btn-outline-success index-button"><%= f.button :submit %></div>
+<% end %>
