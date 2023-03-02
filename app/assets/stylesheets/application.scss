@@ -13,3 +13,10 @@
 @import "pages/index";
 @import "components/button";
 @import "components/footer";
+
+.home-container {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: 100vh;
+}
