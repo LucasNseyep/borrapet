@@ -1,11 +1,10 @@
 <h1 class="d-flex justify-content-center mb-4">All Pets</h1>
-
 <div class="d-flex justify-content-center">
+  <div class="btn btn-outline-success index-button mx-4"><%= link_to "Add your pet", new_pet_path %></div>
+  <div class="btn btn-outline-success index-button mx-4"><%= link_to "See your playdates", user_play_dates_path(@user) %></div>
 </div>
 <br>
 <br>
-
-
 <div class="row">
   <% @pets.each do |pet| %>
     <div class="col-md-3">
@@ -15,13 +14,12 @@
           <img src="https://miro.medium.com/max/650/0*zV9kLZ9GyYscLrhX.jpg" class="card-img-top img-fluid" alt="dog">
         <% else %>
           <img src=<%= pet.photo.url %> class="card-img-top img-fluid">
-          <%# <%= cl_image_tag pet.photo.key,  %>
         <% end %>
           <div class="card-body">
             <h3 class="card-title"><%= pet.name %></h3>
             <h5 class="card-location">Location</h5>
             <% if pet.average == 0 %>
-              <p class="card-rating"> 5.0⭐</p>
+              <p class="card-rating"> 5⭐</p>
             <% else %>
               <p class="card-rating"><%= pet.average %>⭐</p>
             <% end %>
