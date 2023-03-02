@@ -12,11 +12,18 @@ class ReviewsController < ApplicationController
     @user = current_user
     @review = Review.new(review_params)
     @review.play_date_id = @play_date.id
-    if @review.save
-      redirect_to user_play_dates_path(@user)
-    else
-      render :new, status: :unprocessable_entity
-    end
+    # play_dates = PlayDate.all
+    # filters = play_dates.select { |date| date.user == @user }
+    # # filters.each do |filter|
+    # #   filter.id != @review.play_date_id
+    # # end
+    # raise
+      if @review.save
+        redirect_to user_play_dates_path(@user)
+      else
+        render :new, status: :unprocessable_entity
+      end
+    # end
   end
 
   def new
