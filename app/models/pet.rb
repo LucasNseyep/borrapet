@@ -18,4 +18,14 @@ class Pet < ApplicationRecord
       return array.sum / array.size
     end
   end
+
+  include PgSearch::Model
+  pg_search_scope :pet_search,
+  against: [ :name, :pet_type, :bio ],
+  associated_against: {
+    user: [ :first_name, :last_name ]
+  },
+  using: {
+    tsearch: { prefix: true }
+  }
 end

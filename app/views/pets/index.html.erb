@@ -2,9 +2,16 @@
 
 <div class="d-flex justify-content-center">
 </div>
-<br>
-<br>
+<%= form_with url: pets_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a pet"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
 
+<br>
 
 <div class="row">
   <% @pets.each do |pet| %>
