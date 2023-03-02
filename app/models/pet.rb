@@ -15,7 +15,7 @@ class Pet < ApplicationRecord
     if array.size == 0
       return 0
     else
-      result = array.sum / array.size
+      return array.sum / array.size
     end
   end
 end
