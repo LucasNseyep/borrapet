@@ -38,10 +38,6 @@ class PlayDatesController < ApplicationController
 
   def index
     @play_dates = current_user.play_dates
-    # @play_dates = PlayDate.all
-    # @play_dates.select(params[:user_id].to_i)
-    # @reviews = Review.all
-    # @reviews.select(params[:play_date_id].to_i)
   end
 
   private
@@ -53,8 +49,4 @@ class PlayDatesController < ApplicationController
   def find_pet
     @pet = Pet.find(params[:pet_id])
   end
-
-  # def find_review
-  #   @review = Review.find(params[:id])
-  # end
 end
