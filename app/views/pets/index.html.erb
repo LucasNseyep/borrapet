@@ -10,14 +10,23 @@
     <div class="col-md-3">
       <%= link_to pet_path(pet), class:"text-decoration-none" do %>
         <div class="card mb-3">
+        <% if pet.photo.attached? == false %>
           <img src="https://miro.medium.com/max/650/0*zV9kLZ9GyYscLrhX.jpg" class="card-img-top img-fluid" alt="dog">
+        <% else %>
+          <img src=<%= pet.photo.url %> class="card-img-top img-fluid">
+          <%# <%= cl_image_tag pet.photo.key,  %>
+        <% end %>
           <div class="card-body">
             <h3 class="card-title"><%= pet.name %></h3>
             <h5 class="card-location">Location</h5>
-            <p class="card-rating">5⭐</p>
+            <% if pet.average == 0 %>
+              <p class="card-rating"> 5.0⭐</p>
+            <% else %>
+              <p class="card-rating"><%= pet.average %>⭐</p>
+            <% end %>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
   <% end %>
 </div>

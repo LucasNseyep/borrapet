@@ -2,7 +2,6 @@
   border: none;
   background: transparent;
   transition: transform 0.3s;
-  // width: 200px;
 
   &:hover {
     transform: translateY(-5px);
@@ -18,6 +17,7 @@
   .card-body {
     padding: 0.5rem;
     position: relative;
+    border-radius: 5px;
 
     h3.card-title {
       color: black;
