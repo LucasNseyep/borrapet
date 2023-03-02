@@ -1,5 +1,15 @@
 <h1>Your PlayDates</h1>
 <br>
+
+<%= form_with url: play_dates_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a playdate"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
 <% if @play_dates.nil? %>
   <p>You don't have any playdates...</p>
   <% else %>
