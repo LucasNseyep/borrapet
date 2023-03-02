@@ -6,4 +6,8 @@ class PlayDate < ApplicationRecord
 
   validates :start_time, :end_time, presence: true
   validates :start_time, :end_time, uniqueness: true
+
+  # def is_available?
+  #   @play_dates
+  # end
 end
