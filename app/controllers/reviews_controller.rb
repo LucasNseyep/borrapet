@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :find_play_date, only: %i[create new]
+  before_action :find_play_date, only: [:create, :new]
 
   def index
     @reviews = Review.all
@@ -18,8 +18,12 @@ class ReviewsController < ApplicationController
     # #   filter.id != @review.play_date_id
     # # end
     # raise
-    @review.save
-    redirect_to pet_path(@play_date[:pet_id])
+    if @review.save
+      redirect_to pet_path(@play_date[:pet_id])
+    else
+      # render :new, status: :unprocessable_entity
+      redirect_to pet_path(@play_date[:pet_id])
+    end
   end
 
   def new

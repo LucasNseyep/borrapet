@@ -13,10 +13,12 @@ class Pet < ApplicationRecord
   # validates :photo, presence: true
 
   def average
-    array = reviews.pluck(:rating)
-    return 0 if array.empty?
-
-    return '%.1f' % (array.sum / array.size)
+    array = self.reviews.pluck(:rating)
+    if array.size == 0
+      return 0
+    else
+      return array.sum / array.size
+    end
   end
 
   include PgSearch::Model
