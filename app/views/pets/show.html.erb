@@ -10,9 +10,25 @@
   <p><%= @pet.bio %></p>
   <p class="fs-6 fw-bold mb-0">About <%= @pet.user.first_name %> <%= @pet.user.last_name %></p>
   <p><%= @user.description %>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-  <p>Contact: <a href="<%= @pet.user.email %>"><%= @pet.user.email %></a></p>
-  <p class="fs-6 fw-bold mb-0">Pet rating</p>
+
+  <p class="fs-6 fw-bold mb-0">Average pet rating</p>
   <p><%= @pet.average %></p>
+  <p class="fs-6 fw-bold mb-0">Pet Reviews</p>
+  <% @pet.play_dates.each do |play_date|
+    show_reviews = @reviews.select { |review| review.play_date_id == play_date[:id] }
+    show_reviews.each do |show_review| %>
+      <p class="fs-6 fw-bold mb-0">Review rating</p>
+      <p><%= show_review.rating %></p>
+      <p class="fs-6 fw-bold mb-0">Review content</p>
+      <p><%= show_review.content %></p>
+    <% end %>
+  <% end %>
+  <% if @pet.photo.attached? == false %>
+    <img src="https://miro.medium.com/max/650/0*zV9kLZ9GyYscLrhX.jpg" alt="dog">
+  <% else %>
+    <%= cl_image_tag @pet.photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+<br>
 
 <h4>Book a playdate with <%= @pet.name %>:</h4>
 
@@ -33,6 +49,7 @@
             <h5 class="card-title">Your playdate with <%= play_date.pet.name %></h5>
             <p class="card-text"> Starting at: <%= play_date.start_time %></p>
             <p class="card-text"> Finishing at: <%= play_date.end_time %></p>
+            <p class="card-text"><%= link_to "Review your play date", new_play_date_review_path(play_date) %></p>
           </div>
         </div>
       </div>
