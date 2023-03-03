@@ -11,11 +11,11 @@ class PlayDate < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :playdate_search,
-    against: [ :start_time, :end_time ],
-    associated_against: {
-      pet: [ :name, :bio, :pet_type, :user_id ]
-    },
-    using: {
-      tsearch: { prefix: true }
-    }
+                  against: %i[start_time end_time],
+                  associated_against: {
+                    pet: %i[name bio pet_type user_id]
+                  },
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end

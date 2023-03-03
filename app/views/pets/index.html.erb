@@ -29,8 +29,10 @@
             <% if pet.average == 0 %>
               <p>No reviews</p>
             <% else %>
-               <p><%= pet.average.times.map { "⭐" }.join("") %></p>
-
+              <%= pet.average %>
+              <!-- <%= pet.average.times do %>
+                <i class="fa-solid fa-star">
+              <% end %> -->
             <% end %>
           </div>
         </div>

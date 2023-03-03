@@ -45,6 +45,27 @@ class PlayDatesController < ApplicationController
     end
   end
 
+  def edit
+    # @user = current_user
+    @play_date = PlayDate.find(params[:id])
+    # return unless @play_date[:user_id] != @user[:id]
+
+    # redirect_to pet_path(@play_date[:pet_id])
+  end
+
+  def update
+    @play_date = PlayDate.find(params[:id])
+    @play_date.update(play_date_params)
+    @play_date.save
+    redirect_to pet_path(@play_date[:pet_id])
+  end
+
+  def destroy
+    @play_date = PlayDate.find(params[:id])
+    @play_date.destroy
+    redirect_to play_dates_path
+  end
+
   private
 
   def play_date_params
