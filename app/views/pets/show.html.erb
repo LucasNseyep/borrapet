@@ -12,16 +12,32 @@
   <p class="fs-6 fw-bold mb-0">About <%= @pet.user.first_name %> <%= @pet.user.last_name %></p>
   <p><%= @user.description %>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
-  <p class="fs-6 fw-bold mb-0">Average pet rating</p>
-  <p><%= @pet.average %></p>
+  <p class="fs-6 fw-bold mb-0">Average rating</p>
+  <% if @pet.average == 0 %>
+    <p class="card-rating"> 5⭐</p>
+  <% else %>
+    <p class="card-rating"><%= @pet.average %>⭐</p>
+  <% end %>
+
   <p class="fs-6 fw-bold mb-0">Pet Reviews</p>
-  <% @pet.play_dates.each do |play_date|
-    show_reviews = @reviews.first(3).select { |review| review.play_date_id == play_date[:id] }
-    show_reviews.each do |show_review| %>
-      <p class="fs-6 fw-bold mb-0">Review rating</p>
-      <p><%= number_with_precision(show_review.rating, precision: 1) %></p>
-      <p class="fs-6 fw-bold mb-0">Review content</p>
-      <p><%= show_review.content %></p>
+  <% if @reviews.nil? && @pet.play_dates.where(user: @user) %>
+    <p><%= link_to "Be the first to leave a review.", new_play_date_review_path(play_date) %></p>
+  <% elsif @pet.play_dates.where(user: @user) %>
+      <% @pet.play_dates.each do |play_date|
+      reviews = @reviews.first(3).select { |review| review.play_date_id == play_date[:id] }
+      reviews.each do |review| %>
+        <p><%= review.content %></p>
+      <% end %>
+    <% end %>
+  <% elsif @reviews.nil? %>
+    <p>No reviews yet.</p>
+  <% else %>
+    <p><%= link_to "Be the first to leave a review.", new_play_date_review_path(play_date) %></p>
+    <% @pet.play_dates.each do |play_date|
+      reviews = @reviews.first(3).select { |review| review.play_date_id == play_date[:id] }
+      reviews.each do |review| %>
+        <p><%= review.content %></p>
+      <% end %>
     <% end %>
   <% end %>
 
@@ -42,8 +58,8 @@
         <div class="card border border-secondary-subtle mb-3 mt-3 " style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">Your playdate with <%= play_date.pet.name %></h5>
-            <p class="card-text"> Starting at: <%= play_date.start_time %></p>
-            <p class="card-text"> Finishing at: <%= play_date.end_time %></p>
+            <p class="card-text"> Starting at: <%= play_date.start_time.strftime('%Y-%m-%d') %></p>
+            <p class="card-text"> Finishing at: <%= play_date.end_time.strftime('%Y-%m-%d') %></p>
             <p class="card-text"><%= link_to "Review your play date", new_play_date_review_path(play_date) %></p>
             <p class="card-text"><%= link_to "update your play date information", edit_play_date_path(play_date) %></p>
           </div>

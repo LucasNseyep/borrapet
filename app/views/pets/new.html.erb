@@ -1,11 +1,12 @@
-<h1>Add a new pet</h1>
-<p>Find me in app/views/pets/new.html.erb</p>
-<%= simple_form_for(@pet) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :pet_type %>
-  <%= f.input :breed %>
-  <%= f.input :bio %>
-  <%= f.input :photo, as: :file %>
-  <%# <%= f.input :photo, as: :file %>
-  <div class="index-button"><%= f.button :submit %></div>
-<% end %>
+<div class="container new-card">
+  <h1>Add a new pet</h1>
+    <%= simple_form_for(@pet) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :pet_type %>
+      <%= f.input :breed %>
+      <%= f.input :bio %>
+      <%= f.input :photo, as: :file %>
+      <%# <%= f.input :photo, as: :file %>
+      <div class="index-button"><%= f.button :submit %></div>
+    <% end %>
+</div>

@@ -1,0 +1,26 @@
+.new-card {
+  margin: 0 auto;
+  padding: 40px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-color: #f3ebe6;
+  max-width: 800px;
+}
+
+.btn {
+  color: white;
+  font-size: 18px;
+  font-weight: 400;
+  text-decoration: none;
+  background-color: #B57945;
+  padding: 12px 20px;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  background-color: #B57945;
+}
+
+.btn:active {
+  color: #B57945;
+}
