@@ -16,7 +16,8 @@ class Pet < ApplicationRecord
     array = reviews.pluck(:rating)
     return 0 if array.empty?
 
-    return format('%.1f', (array.sum / array.size))
+    # return format('%.1f', (array.sum / array.size)).to_i
+    return array.sum / array.size
   end
 
   include PgSearch::Model
