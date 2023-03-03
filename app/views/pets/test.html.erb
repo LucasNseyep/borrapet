@@ -5,31 +5,27 @@
     <p><%= @pet.average.times.map { "⭐" }.join("") %></p>
   </div>
 
-  <div class="show-show d-flex">
+  <div class="show-pic">
+    <% if @pet.photo.attached? == false %>
+      <i class="fa-regular fa-images fa-shake" style="--fa-animation-duration: 2s;"></i>
+    <% else %>
+      <%= cl_image_tag @pet.photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
+  </div>
 
-    <div class="show-pic">
-      <% if @pet.photo.attached? == false %>
-        <i class="fa-regular fa-images fa-shake" style="--fa-animation-duration: 2s;"></i>
-      <% else %>
-        <%= cl_image_tag @pet.photo.key, height: 300, width: 400, crop: :fill %>
+  <div class="show-info">
+    <p class="fs-6 fw-bold mb-0">About <%= @pet.name %></p>
+    <p><%= @pet.bio %></p>
+    <p class="fs-6 fw-bold mb-0">About <%= @pet.user.first_name %> <%= @pet.user.last_name %></p>
+    <p><%= @user.description %>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+    <p class="fs-6 fw-bold mb-0">Pet Reviews</p>
+    <% @pet.play_dates.each do |play_date|
+      show_reviews = @reviews.first(3).select { |review| review.play_date_id == play_date[:id] }
+      show_reviews.each do |show_review| %>
+        <p><%= show_review.content %></p>
       <% end %>
-    </div>
-
-    <div class="show-info">
-      <p class="fs-6 fw-bold mb-0">About <%= @pet.name %></p>
-      <p><%= @pet.bio %></p>
-      <p class="fs-6 fw-bold mb-0">About <%= @pet.user.first_name %> <%= @pet.user.last_name %></p>
-      <p><%= @user.description %>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-      <p class="fs-6 fw-bold mb-0">Pet Reviews</p>
-      <% @pet.play_dates.each do |play_date|
-        show_reviews = @reviews.first(3).select { |review| review.play_date_id == play_date[:id] }
-        show_reviews.each do |show_review| %>
-          <p><%= show_review.content %></p>
-        <% end %>
-      <% end %>
-    </div>
-
+    <% end %>
   </div>
 
   <div class="form-playdates">
