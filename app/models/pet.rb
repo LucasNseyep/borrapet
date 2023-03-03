@@ -21,12 +21,14 @@ class Pet < ApplicationRecord
     end
   end
 
-  # def available?
-  #   # start_time = self.start_time
-  #   # end_time = self.end_time
-  #   # length = end_time - start_time
-  #   if PlayDate.where('? < end_time and ? > start_time', self.start_time, self.end_time).any?
-  #     errors.add(:end_time, "the pet will be on a play date then sorry!")
-  #   end
-  # end
+  include PgSearch::Model
+  pg_search_scope :pet_search,
+  against: [ :name, :pet_type, :bio ],
+  associated_against: {
+    user: [ :first_name, :last_name ]
+  },
+  using: {
+    tsearch: { prefix: true }
+  }
+
 end
