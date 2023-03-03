@@ -13,11 +13,13 @@
 .card-img-top {
   height: 150px;
   object-fit: fill;
+  border-radius: 10px;
 }
 
 .card-body {
   padding: 0.5rem;
   position: relative;
+  border-radius: 10px;
 }
 
 h3.card-title {
