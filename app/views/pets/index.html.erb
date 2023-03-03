@@ -27,9 +27,10 @@
             <h3 class="card-title"><%= pet.name %></h3>
             <h5 class="card-location"><%= pet.user.address %></h5>
             <% if pet.average == 0 %>
-              <p class="card-rating"> 5⭐</p>
+              <p>No reviews</p>
             <% else %>
-              <p class="card-rating"><%= pet.average %>⭐</p>
+               <p><%= pet.average.times.map { "⭐" }.join("") %></p>
+
             <% end %>
           </div>
         </div>

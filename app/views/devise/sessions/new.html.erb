@@ -12,11 +12,11 @@
       <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
       <i class="fa-solid fa-eye-slash eye-icon"></i>
       <div class="form-actions">
+      <div class="linktos">
+        <%= render "devise/shared/links" %>
         <%= f.button :submit, "Log in" %>
       </div>
+      </div>
     <% end %>
-  </div>
-  <div class="linktos">
-    <%= render "devise/shared/links" %>
   </div>
 </div>
