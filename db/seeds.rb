@@ -36,7 +36,7 @@ puts "Other users are signing up as well :O"
     phone_number: Faker::PhoneNumber.cell_phone,
     first_name: first_name,
     last_name: last_name,
-    address:Faker::Address.full_address,
+    address:Faker::Address.city,
     description: Faker::Lorem.paragraphs
   )
 

@@ -25,7 +25,7 @@
         <% end %>
           <div class="card-body">
             <h3 class="card-title"><%= pet.name %></h3>
-            <h5 class="card-location">Location</h5>
+            <h5 class="card-location"><%= pet.user.address %></h5>
             <% if pet.average == 0 %>
               <p class="card-rating"> 5⭐</p>
             <% else %>
