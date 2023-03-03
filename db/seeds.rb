@@ -51,25 +51,84 @@ o'')}____//
  `_/      )
  (_(_/-(_/
 
- \n\n\n"
-
- description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+\n\n\n"
 
 
-10.times do
-  pet_name = Faker::Creature::Dog.name
-  file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Garden_skink.jpg/1024px-Garden_skink.jpg")
-  pet = Pet.new(
-      user_id: rand(User.first.id..User.last.id),
-      pet_type: Faker::Creature::Animal.name,
-      breed: "~~~",
-      name: pet_name,
-      bio: description,
-    )
-  pet.photo.attach(io: file, filename: "skink.jpg", content_type: "image/jpg")
-  pet.save
-  puts "Awww, #{pet_name} joined the platform xx"
-end
+
+pet_name = "Big Al"
+file = URI.open("https://static.wikia.nocookie.net/isle/images/c/c0/Spino_new_hd_4k.PNG/revision/latest?cb=20200208141308")
+pet = Pet.create(
+    user_id: rand(User.first.id..User.last.id),
+    pet_type: "Dinosaur",
+    breed: "~~~",
+    name: pet_name,
+    bio: "The biggest carnivorous dinosaur of them all! The Spinosaurus diet consisted mainly of fish. Was the main villain of 'Jurrasic-park' 3.",
+  )
+pet.photo.attach(io: file, filename: "big_al.jpeg", content_type: "image/jpg")
+pet.save
+puts "Awww, #{pet_name} joined the platform xx"
+
+
+
+pet_name = "Hayley"
+file = URI.open("https://cdn.britannica.com/09/74609-050-21E14E52/example-museum-replica-species-Canadian-de-extinction.jpg")
+pet = Pet.create(
+    user_id: rand(User.first.id..User.last.id),
+    pet_type: "Mammoth",
+    breed: "~~~",
+    name: pet_name,
+    bio: "She was the model for Ice Age.",
+  )
+pet.photo.attach(io: file, filename: "hayley.jpeg", content_type: "image/jpg")
+pet.save
+puts "Awww, #{pet_name} joined the platform xx"
+
+
+
+pet_name = "Arthur"
+file = URI.open("https://media.cnn.com/api/v1/images/stellar/prod/220920074153-01-ant-population-estimate.jpg?c=16x9&q=h_720,w_1280,c_fill")
+pet = Pet.create(
+    user_id: rand(User.first.id..User.last.id),
+    pet_type: "Ant",
+    breed: "~~~",
+    name: pet_name,
+    bio: "Just your everyday ant. I like being part of a group. All hail the queen!",
+  )
+pet.photo.attach(io: file, filename: "arthur.jpeg", content_type: "image/jpg")
+pet.save
+puts "Awww, #{pet_name} joined the platform xx"
+
+
+
+pet_name = "Marcus"
+file = URI.open("https://a-z-animals.com/media/2021/10/gray-wolf-cubs-in-a-grass-picture-id657385992.jpg")
+pet = Pet.create(
+    user_id: rand(User.first.id..User.last.id),
+    pet_type: "Wolf",
+    breed: "~~~",
+    name: pet_name,
+    bio: "Awoooooooooo",
+  )
+pet.photo.attach(io: file, filename: "big_al.jpeg", content_type: "image/jpg")
+pet.save
+puts "Awww, #{pet_name} joined the platform xx"
+
+
+
+pet_name = "ClairClair"
+file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Garden_skink.jpg/1024px-Garden_skink.jpg")
+pet = Pet.create(
+    user_id: rand(User.first.id..User.last.id),
+    pet_type: "Skink",
+    breed: "~~~",
+    name: pet_name,
+    bio: "Skink Skink Skurrr Skurrr",
+  )
+pet.photo.attach(io: file, filename: "big_al.jpeg", content_type: "image/jpg")
+pet.save
+puts "Awww, #{pet_name} joined the platform xx"
+
+
 
 puts "Who let the pets in XD"
 
