@@ -1,5 +1,15 @@
 <h1 style="margin-bottom: 0px;">Your PlayDates</h1>
 <br>
+
+<%= form_with url: play_dates_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a playdate"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
 <% if @play_dates.nil? %>
   <p>You don't have any playdates...</p>
   <% else %>
@@ -14,8 +24,8 @@
         <% end %>
         <div class="card-body">
           <h5 class="card-title">Your playdate with <%= play_date.pet.name %></h5>
-          <p class="card-text"> Starting at: <%= play_date.start_time %></p>
-          <p class="card-text"> Finishing at: <%= play_date.end_time %></p>
+        <p class="card-text"> Starting at: <%= play_date.start_time.strftime('%Y-%m-%d') %></p>
+          <p class="card-text"> Finishing at: <%= play_date.end_time.strftime('%Y-%m-%d') %></p>
           <p class="card-text"><%= link_to "Review your play date", new_play_date_review_path(play_date) %></p>
         </div>
       </div>

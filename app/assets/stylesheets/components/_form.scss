@@ -1,5 +1,5 @@
 .container-signup {
-  margin: 0;
+  margin: -30px 0 0 0;
   padding: 0;
   padding-bottom: 60px;
   box-sizing: border-box;
@@ -11,11 +11,13 @@
   // align-items: center;
   // justify-content: center;
 
-  background-color: #aec4ff;
+  background-color: #f3ebe6;
 }
 
 // header
 .signup {
+  margin-top: 30px;
+  padding: 15px;
   font-size: 28px;
   font-weight: 600;
   color: #232836;
@@ -71,7 +73,7 @@
 
 /* sign-up button */
 .form-actions input[type="submit"] {
-  background-color: #0088ff;
+  background-color: #b57945;
   color: #FFF;
   border: none;
   padding: 10px 20px;
@@ -84,12 +86,12 @@
 }
 
 .form-actions input[type="submit"]:hover {
-  background-color: #0076dd;
-  color: black;
+  background-color: #366a2f;
+  color: #fff;
 }
 
 .linktos {
-  color: #0088ff;
+  color: #407f37;
   text-decoration: none;
 
 }
