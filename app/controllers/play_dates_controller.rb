@@ -39,6 +39,11 @@ class PlayDatesController < ApplicationController
 
   def index
     @play_dates = current_user.play_dates
+    if params[:query].present?
+      @play_dates = current_user.play_dates.playdate_search(params[:query])
+    else
+      @play_dates = current_user.play_dates
+    end
   end
 
   def edit

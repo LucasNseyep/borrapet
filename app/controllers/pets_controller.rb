@@ -3,7 +3,12 @@ class PetsController < ApplicationController
 
   def index
     @user = current_user
-    @pets = Pet.all
+    @play_dates = current_user.play_dates
+    if params[:query].present?
+      @pets = Pet.all.pet_search(params[:query])
+    else
+      @pets = Pet.all
+    end
   end
 
   def new
@@ -27,6 +32,7 @@ class PetsController < ApplicationController
 
   def show
     @pet = Pet.find(params[:id])
+    @play_dates = current_user.play_dates.where(pet: @pet)
     @user = current_user
     @play_date = PlayDate.new
     # @play_dates = PlayDate.find()

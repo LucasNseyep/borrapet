@@ -1,0 +1,122 @@
+.container-signup {
+  margin: -30px 0 0 0;
+  padding: 0;
+  padding-bottom: 60px;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+
+  height: 100vh;
+  width: 100%;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+
+  background-color: #f3ebe6;
+}
+
+// header
+.signup {
+  margin-top: 30px;
+  padding: 15px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #232836;
+  text-align: center;
+}
+
+// form itself
+.form-inputs {
+  font-family: 'Poppins', sans-serif;
+  max-width: 430px;
+  width: 100;
+  margin-top: 20px;
+  margin: 0 auto;
+  padding: 20px;
+  padding-top: 15px;
+  border-radius: 6px;
+  justify-content: center;
+  background: #FFF;
+  border: none;
+
+  position: relative;
+}
+
+
+.eye-icon {
+  position: absolute;
+  top: 221px;
+  right: 25px;
+  transform: translateY(-370%);
+
+  font-size: 12px;
+  color: #8b8b8b;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.eye-icon-2 {
+  position: absolute;
+  top: 220px;
+  right: 25px;
+  transform: translateY(140%);
+
+  font-size: 12px;
+  color: #8b8b8b;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.line {
+  height: 1px;
+  background-color: #d4d4d4;
+}
+
+/* sign-up button */
+.form-actions input[type="submit"] {
+  background-color: #b57945;
+  color: #FFF;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.form-actions input[type="submit"]:hover {
+  background-color: #366a2f;
+  color: #fff;
+}
+
+.linktos {
+  color: #407f37;
+  text-decoration: none;
+
+}
+
+.linktos a:hover {
+  text-decoration: underline;
+  color: #0076dd;
+}
+/* login link */
+// #form-login a {
+//   color: #0189ff;
+//   text-decoration: none;
+//   font-size: 16px;
+//   font-weight: 400;
+//   display: block;
+//   text-align: center;
+//   margin-top: 10px;
+
+//   top: 69%;
+//   left: 530px;
+//   position: absolute;
+//   transform: translateY(400%);
+// }
+
+// #form-login a:hover {
+//   text-decoration: underline;
+//   color: #0076dd;
+// }
