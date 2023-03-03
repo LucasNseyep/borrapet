@@ -1,24 +1,30 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>BorrAPet!</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: false %>
-    <p class="notice mb-0"><%= notice %></p>
-    <p class="alert mb-0"><%= alert %></p>
-  </head>
-  <body>
-    <% unless params[:action] == "home" ||params[:action] == "new" %>
-      <div class="container mb-5">
-      <% end %>
-      <%# Navbar %>
-      <%= render '/shared/navbar' %>
-      <%= yield %>
-      <% unless params[:action] == "home" %>
+  <html>
+    <head>
+      <title>BorrAPet!</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+
+      <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+      <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: false %>
+
+      <p class="notice mb-0"><%= notice %></p>
+      <p class="alert mb-0"><%= alert %></p>
+    </head>
+    <body>
+      <div class="home-container">
+        <% unless params[:action] == "home" %>
+          <div class="container mb-5">
+        <% end %>
+
+        <%# Navbar %>
+          <%= render '/shared/navbar' %>
+          <%= yield %>
+        <% unless params[:action] == "home" %>
+          </div>
+        <% end %>
+        <%= render '/shared/footer' %>
       </div>
-    <% end %>
-  </body>
-</html>
+    </body>
+  </html>
