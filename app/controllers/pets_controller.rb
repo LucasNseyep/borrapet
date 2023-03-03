@@ -15,10 +15,6 @@ class PetsController < ApplicationController
     @pet = Pet.new
   end
 
-  def edit
-    @pet = Pet.find(params[:id])
-  end
-
   def create
     @user = current_user
     @pet = Pet.new(pet_params)
@@ -35,21 +31,7 @@ class PetsController < ApplicationController
     @play_dates = current_user.play_dates.where(pet: @pet)
     @user = current_user
     @play_date = PlayDate.new
-    # @play_dates = PlayDate.find()
     @reviews = Review.all
-  end
-
-  def update
-    @pet = Pet.find(params[:id])
-    @pet.update(pet_params)
-    @pet.save
-    redirect_to pet_path(@pet)
-  end
-
-  def destroy
-    @pet = Pet.find(params[:id])
-    @pet.destroy
-    redirect_to pets_path
   end
 
   private
