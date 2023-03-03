@@ -6,6 +6,7 @@
 
 <h1><%= @pet.name %> the <%= @pet.pet_type.capitalize %></h1>
 
+<div class="btn btn-outline-success index-button"><%= link_to "update your pets info", edit_pet_path(@pet) %></div>
   <p class="fs-6 fw-bold mb-0">About <%= @pet.name %></p>
   <p><%= @pet.bio %></p>
   <p class="fs-6 fw-bold mb-0">About <%= @pet.user.first_name %> <%= @pet.user.last_name %></p>
@@ -13,31 +14,9 @@
 
   <p class="fs-6 fw-bold mb-0">Average rating</p>
   <% if @pet.average == 0 %>
-    <p class="card-rating"> 5⭐</p>
+    <p class="card-rating"> 5.0⭐</p>
   <% else %>
     <p class="card-rating"><%= @pet.average %>⭐</p>
-  <% end %>
-
-  <p class="fs-6 fw-bold mb-0">Pet Reviews</p>
-  <% if @reviews.nil? && @pet.play_dates.where(user: @user) %>
-    <p><%= link_to "Be the first to leave a review.", new_play_date_review_path(play_date) %></p>
-  <% elsif @pet.play_dates.where(user: @user) %>
-      <% @pet.play_dates.each do |play_date|
-      reviews = @reviews.first(3).select { |review| review.play_date_id == play_date[:id] }
-      reviews.each do |review| %>
-        <p><%= review.content %></p>
-      <% end %>
-    <% end %>
-  <% elsif @reviews.nil? %>
-    <p>No reviews yet.</p>
-  <% else %>
-    <p><%= link_to "Be the first to leave a review.", new_play_date_review_path(play_date) %></p>
-    <% @pet.play_dates.each do |play_date|
-      reviews = @reviews.first(3).select { |review| review.play_date_id == play_date[:id] }
-      reviews.each do |review| %>
-        <p><%= review.content %></p>
-      <% end %>
-    <% end %>
   <% end %>
 
 <h4>Book a playdate with <%= @pet.name %>:</h4>
@@ -60,6 +39,7 @@
             <p class="card-text"> Starting at: <%= play_date.start_time.strftime('%Y-%m-%d') %></p>
             <p class="card-text"> Finishing at: <%= play_date.end_time.strftime('%Y-%m-%d') %></p>
             <p class="card-text"><%= link_to "Review your play date", new_play_date_review_path(play_date) %></p>
+            <p class="card-text"><%= link_to "update your play date information", edit_play_date_path(play_date) %></p>
           </div>
         </div>
       </div>
@@ -68,3 +48,14 @@
       <p>You don't have any playdates with <%= @pet.name %>.</p>
   <% end %>
 </div>
+
+<p class="card rating">Reviews</p>
+
+<% @pet.play_dates.each do |play_date|
+  reviews = @reviews.first(3).select { |review| review.play_date_id == play_date[:id] }
+  reviews.each do |review| %>
+    <p>Review:</p>
+    <p><%= review.content %></p>
+    <br>
+  <% end %>
+<% end %>

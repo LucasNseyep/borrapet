@@ -26,6 +26,7 @@
           <h5 class="card-title">Your playdate with <%= play_date.pet.name %></h5>
         <p class="card-text"> Starting at: <%= play_date.start_time.strftime('%Y-%m-%d') %></p>
           <p class="card-text"> Finishing at: <%= play_date.end_time.strftime('%Y-%m-%d') %></p>
+          <p class="card-text"><%= link_to "update your play date information", edit_play_date_path(play_date) %></p>
           <p class="card-text rev-button d-flex justify-content-center"><%= link_to "Add Review", new_play_date_review_path(play_date) %></p>
         </div>
       </div>
