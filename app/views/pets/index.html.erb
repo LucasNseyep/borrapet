@@ -30,9 +30,10 @@
               <%# <p class="card-rating"><i class="fa-solid fa-star"></i></p> %>
               <p class="card-rating"></p>
             <% else %>
-              <%= pet.average.times do %>
+              <%= pet.average %>
+              <!-- <%= pet.average.times do %>
                 <i class="fa-solid fa-star">
-              <% end %>
+              <% end %> -->
             <% end %>
           </div>
         </div>
