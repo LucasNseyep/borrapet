@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :find_play_date, only: [:create, :new]
+  before_action :find_play_date, only: %i[create new]
 
   def index
     @reviews = Review.all

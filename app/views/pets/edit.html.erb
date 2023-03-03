@@ -1,5 +1,8 @@
 <h1>Update a pet</h1>
 <p>Find me in app/views/pets/new.html.erb</p>
+<%= link_to "Delete",
+    pet_path(@pet),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
 <%= simple_form_for(@pet) do |f| %>
   <%= f.input :name %>
   <%= f.input :pet_type %>

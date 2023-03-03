@@ -33,9 +33,16 @@ class PetsController < ApplicationController
   end
 
   def update
-    @pet = Pet.find_by(params[:id])
+    @pet = Pet.find(params[:id])
     @pet.update(pet_params)
+    @pet.save
     redirect_to pet_path(@pet)
+  end
+
+  def destroy
+    @pet = Pet.find(params[:id])
+    @pet.destroy
+    redirect_to pets_path
   end
 
   private
