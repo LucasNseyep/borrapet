@@ -1,4 +1,6 @@
 class Pet < ApplicationRecord
+  # validate :available?
+
   belongs_to :user
   has_many :play_dates, dependent: :destroy
   has_many :reviews, through: :play_dates
@@ -15,7 +17,16 @@ class Pet < ApplicationRecord
     if array.size == 0
       return 0
     else
-      result = array.sum / array.size
+      return array.sum / array.size
     end
   end
+
+  # def available?
+  #   # start_time = self.start_time
+  #   # end_time = self.end_time
+  #   # length = end_time - start_time
+  #   if PlayDate.where('? < end_time and ? > start_time', self.start_time, self.end_time).any?
+  #     errors.add(:end_time, "the pet will be on a play date then sorry!")
+  #   end
+  # end
 end

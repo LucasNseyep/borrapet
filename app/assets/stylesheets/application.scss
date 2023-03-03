@@ -6,8 +6,18 @@
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
+@import "flatpickr/dist/flatpickr.css";
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
 @import "components/button";
+@import "components/footer";
+@import "components/navbar";
+
+.home-container {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: 100vh;
+}
