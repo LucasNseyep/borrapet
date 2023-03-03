@@ -1,18 +1,17 @@
+<h1><%= @pet.name %> the <%= @pet.pet_type.capitalize %></h1>
+  <p class="fs-6 fw-bold mb-0">Average pet rating</p>
+  <p><%= @pet.average %></p>
   <% if @pet.photo.attached? == false %>
     <img src="https://miro.medium.com/max/650/0*zV9kLZ9GyYscLrhX.jpg" alt="dog">
   <% else %>
     <%= cl_image_tag @pet.photo.key, height: 300, width: 400, crop: :fill %>
   <% end %>
 
-<h1><%= @pet.name %> the <%= @pet.pet_type.capitalize %></h1>
-
   <p class="fs-6 fw-bold mb-0">About <%= @pet.name %></p>
   <p><%= @pet.bio %></p>
   <p class="fs-6 fw-bold mb-0">About <%= @pet.user.first_name %> <%= @pet.user.last_name %></p>
   <p><%= @user.description %>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
-  <p class="fs-6 fw-bold mb-0">Average pet rating</p>
-  <p><%= @pet.average %></p>
   <p class="fs-6 fw-bold mb-0">Pet Reviews</p>
   <% @pet.play_dates.each do |play_date|
     show_reviews = @reviews.first(3).select { |review| review.play_date_id == play_date[:id] }
