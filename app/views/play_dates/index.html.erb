@@ -16,7 +16,7 @@
   <div class="row">
   <% @play_dates.each do |play_date| %>
     <div class="col-md-3 mb-4">
-      <div class="card border border-secondary-subtle mb-3 mt-3 w-100 h-100">
+      <div class="card mb-3 mt-3 w-100 h-100">
       <% if play_date.pet.photo.attached? == false %>
           <img src="https://miro.medium.com/max/650/0*zV9kLZ9GyYscLrhX.jpg" class="card-img-top img-fluid" alt="dog">
         <% else %>
@@ -26,7 +26,7 @@
           <h5 class="card-title">Your playdate with <%= play_date.pet.name %></h5>
         <p class="card-text"> Starting at: <%= play_date.start_time.strftime('%Y-%m-%d') %></p>
           <p class="card-text"> Finishing at: <%= play_date.end_time.strftime('%Y-%m-%d') %></p>
-          <p class="card-text"><%= link_to "Review your play date", new_play_date_review_path(play_date) %></p>
+          <p class="card-text rev-button d-flex justify-content-center"><%= link_to "Add Review", new_play_date_review_path(play_date) %></p>
         </div>
       </div>
     </div>
