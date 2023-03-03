@@ -5,7 +5,7 @@
     <p><%= @pet.average.times.map { "⭐" }.join("") %></p>
   </div>
 
-  <div class="show-show d-flex">
+  <div class="show-show d-flex justify-content-start">
 
     <div class="show-pic">
       <% if @pet.photo.attached? == false %>
@@ -18,18 +18,29 @@
     <div class="show-info">
       <p class="fs-6 fw-bold mb-0">About <%= @pet.name %></p>
       <p><%= @pet.bio %></p>
-      <p class="fs-6 fw-bold mb-0">About <%= @pet.user.first_name %> <%= @pet.user.last_name %></p>
-      <p><%= @user.description %>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
       <p class="fs-6 fw-bold mb-0">Pet Reviews</p>
-      <% @pet.play_dates.each do |play_date|
-        show_reviews = @reviews.first(3).select { |review| review.play_date_id == play_date[:id] }
-        show_reviews.each do |show_review| %>
-          <p><%= show_review.content %></p>
+      <% if @reviews.nil? && @pet.play_dates.where(user: @user) %>
+        <p><%= link_to "Be the first to leave a review.", new_play_date_review_path(play_date) %></p>
+      <% elsif @pet.play_dates.where(user: @user) %>
+        <% @pet.play_dates.each do |play_date| %>
+          <% reviews = @reviews.first(3).select { |review| review.play_date_id == play_date[:id] } %>
+          <% reviews.each do |review| %>
+            <p><%= review.content %></p>
+          <% end %>
+        <% end %>
+      <% elsif @reviews.nil? %>
+        <p>No reviews yet.</p>
+      <% else %>
+        <p><%= link_to "Be the first to leave a review.", new_play_date_review_path(play_date) %></p>
+        <% @pet.play_dates.each do |play_date| %>
+          <% reviews = @reviews.first(3).select { |review| review.play_date_id == play_date[:id] } %>
+          <% reviews.each do |review| %>
+            <p><%= review.content %></p>
+          <% end %>
         <% end %>
       <% end %>
     </div>
-
   </div>
 
   <div class="form-playdates">
@@ -41,10 +52,11 @@
     <% end %>
   </div>
 
+
   <h2 class="mt-3">Playdates</h2>
   <div class="row">
     <% if @play_dates.present? %>
-        <% @play_dates.each do |play_date| %>
+      <% @play_dates.each do |play_date| %>
         <div class="col-md-3">
           <div class="card border border-secondary-subtle mb-3 mt-3 " style="width: 18rem;">
             <div class="card-body">

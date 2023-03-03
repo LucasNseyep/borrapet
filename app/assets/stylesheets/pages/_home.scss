@@ -1,1 +1,143 @@
 // Specific CSS for your home-page
+.headline {
+  max-width: 650px;
+  text-align: center;
+  margin: auto;
+  padding-bottom: 30px;
+  margin-bottom: 40px;
+}
+
+.reviews {
+  background-color: #f8f9fa;
+  padding: 110px 0;
+  height: 80vh;
+  display: flex;
+  flex-direction: center;
+  align-items: center;
+}
+
+.reviews .relative {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.reviews .relative:hover {
+  width: 210px;
+  height: 210px;
+}
+
+.reviews .absolute {
+  position: absolute;
+  width: 220px;
+  height: 200px;
+  left: 50%;
+  margin-left: -110px;
+  top: 50%;
+  margin-top: -74px;
+  text-align: center;
+}
+
+.reviews .quote {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.reviews .client {
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: bold;
+  width: 300px;
+  margin-left: 90px;
+}
+
+.reviews .item {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.reviews .info {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.green {
+  background-color: rgba(75, 114, 70, 0.2);
+}
+
+.orange {
+  background-color: rgba(181, 121, 69, 0.2);
+}
+
+
+// About
+
+.text-container-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+}
+
+.about {
+  background-color: rgba(181, 121, 69, 0.5);
+  padding: 110px 0;
+}
+
+.about h3 {
+  margin-bottom: 5px;
+}
+
+.about .item {
+  display: flex;
+  margin-bottom: 18x;
+  width: 500px;
+  text-align: center;
+}
+
+.about .text {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.about .description {
+  max-width: 500px;
+  text-align: center;
+}
+
+.about .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+
+// Subscribe section
+
+.subscribe {
+  background-color: rgba(75, 114, 70, 0.5);
+  padding: 110px 0;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.subscribe-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sub-text {
+  margin-top: 16px;
+}
