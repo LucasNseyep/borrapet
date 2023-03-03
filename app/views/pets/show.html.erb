@@ -14,31 +14,9 @@
 
   <p class="fs-6 fw-bold mb-0">Average rating</p>
   <% if @pet.average == 0 %>
-    <p class="card-rating"> 5⭐</p>
+    <p class="card-rating"> 5.0⭐</p>
   <% else %>
     <p class="card-rating"><%= @pet.average %>⭐</p>
-  <% end %>
-
-  <p class="fs-6 fw-bold mb-0">Pet Reviews</p>
-  <% if @reviews.nil? && @pet.play_dates.where(user: @user) %>
-    <p><%= link_to "Be the first to leave a review.", new_play_date_review_path(play_date) %></p>
-  <% elsif @pet.play_dates.where(user: @user) %>
-      <% @pet.play_dates.each do |play_date|
-      reviews = @reviews.first(3).select { |review| review.play_date_id == play_date[:id] }
-      reviews.each do |review| %>
-        <p><%= review.content %></p>
-      <% end %>
-    <% end %>
-  <% elsif @reviews.nil? %>
-    <p>No reviews yet.</p>
-  <% else %>
-    <p><%= link_to "Be the first to leave a review.", new_play_date_review_path(play_date) %></p>
-    <% @pet.play_dates.each do |play_date|
-      reviews = @reviews.first(3).select { |review| review.play_date_id == play_date[:id] }
-      reviews.each do |review| %>
-        <p><%= review.content %></p>
-      <% end %>
-    <% end %>
   <% end %>
 
 <h4>Book a playdate with <%= @pet.name %>:</h4>
@@ -70,3 +48,38 @@
       <p>You don't have any playdates with <%= @pet.name %>.</p>
   <% end %>
 </div>
+
+<p class="card rating">Reviews</p>
+
+<% @pet.play_dates.each do |play_date|
+  reviews = @reviews.first(3).select { |review| review.play_date_id == play_date[:id] }
+  reviews.each do |review| %>
+    <p>Review:</p>
+    <p><%= review.content %></p>
+    <br>
+  <% end %>
+<% end %>
+
+<!-- <% if @play_dates.nil? && pets. %>
+    <p>No reviews yet.</p>
+  <% elsif @pet.play_dates.where(user_id: @user[:id]) %>
+      <% @pet.play_dates.each do |play_date|
+      reviews = @reviews.first(3).select { |review| review.play_date_id == play_date[:id] }
+      reviews.each do |review| %>
+        <p class="card rating">Reviews</p>
+        <p><%= review.content %></p>
+      <% end %>
+    <% end %>
+  <% elsif @reviews.nil? %>
+    <p>No reviews yet.</p>
+    <p class="fs-6 fw-bold mb-0">Pet Reviews</p>
+    <p><%= link_to "Be the first to leave a review.", new_play_date_review_path(play_date) %></p>
+  <% else %>
+    <p><%= link_to "Be the first to leave a review.", new_play_date_review_path(play_date) %></p>
+    <% @pet.play_dates.each do |play_date|
+      reviews = @reviews.first(3).select { |review| review.play_date_id == play_date[:id] }
+      reviews.each do |review| %>
+        <p><%= review.content %></p>
+      <% end %>
+    <% end %>
+  <% end %> -->
