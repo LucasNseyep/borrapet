@@ -1,1 +1,71 @@
 // Specific CSS for your home-page
+.headline {
+  max-width: 650px;
+  text-align: center;
+  margin: auto;
+  padding-bottom: 60px;
+}
+
+.reviews {
+  background-color: #f8f9fa;
+  padding: 110px 0;
+}
+
+.reviews .relative {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.reviews .relative:hover {
+  width: 210px;
+  height: 210px;
+}
+
+.reviews .absolute {
+  position: absolute;
+  width: 220px;
+  height: 200px;
+  left: 50%;
+  margin-left: -110px;
+  top: 50%;
+  margin-top: -74px;
+  text-align: center;
+}
+
+.reviews .quote {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.reviews .client {
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+.client .name {
+  font-weight: bold;
+}
+
+.reviews .item {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reviews .info {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.green {
+  background-color: rgba(75, 114, 70, 0.2);
+}
+
+.orange {
+  background-color: rgba(181, 121, 69, 0.2);
+}
