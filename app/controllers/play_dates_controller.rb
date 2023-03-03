@@ -1,5 +1,5 @@
 class PlayDatesController < ApplicationController
-  before_action :find_pet, only: [:create, :new]
+  before_action :find_pet, only: %i[create new]
   # before_action :find_review, only: [:index]
 
   def new
@@ -13,7 +13,6 @@ class PlayDatesController < ApplicationController
     @play_date.user = @user
     @play_date.pet = @pet
 
-
     @start_time = @play_date.start_time
     @end_time = @play_date.end_time
     found = false
@@ -21,11 +20,9 @@ class PlayDatesController < ApplicationController
     @all_play_dates.each do |date|
       starts = date.start_time
       ends = date.end_time
-      if @start_time.between?(starts, ends) || @end_time.between?(starts, ends)
-        if date.pet_id == @play_date.pet_id
-          found = true
-        end
-      end
+      next unless @start_time.between?(starts, ends) || @end_time.between?(starts, ends)
+
+      found = true if date.pet_id == @play_date.pet_id
     end
 
     if found == true

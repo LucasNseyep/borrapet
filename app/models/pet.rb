@@ -13,22 +13,19 @@ class Pet < ApplicationRecord
   # validates :photo, presence: true
 
   def average
-    array = self.reviews.pluck(:rating)
-    if array.size == 0
-      return 0
-    else
-      return array.sum / array.size
-    end
+    array = reviews.pluck(:rating)
+    return 0 if array.size == 0
+
+    return array.sum / array.size
   end
 
   include PgSearch::Model
   pg_search_scope :pet_search,
-  against: [ :name, :pet_type, :bio ],
-  associated_against: {
-    user: [ :first_name, :last_name ]
-  },
-  using: {
-    tsearch: { prefix: true }
-  }
-
+                  against: %i[name pet_type bio],
+                  associated_against: {
+                    user: %i[first_name last_name]
+                  },
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end
