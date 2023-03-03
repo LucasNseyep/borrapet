@@ -12,7 +12,7 @@
     show_reviews = @reviews.select { |review| review.play_date_id == play_date[:id] }
     show_reviews.each do |show_review| %>
       <p class="fs-6 fw-bold mb-0">Review rating</p>
-      <p><%= show_review.rating %></p>
+      <p><%= number_with_precision(show_review.rating, precision: 1) %></p>
       <p class="fs-6 fw-bold mb-0">Review content</p>
       <p><%= show_review.content %></p>
     <% end %>

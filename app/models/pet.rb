@@ -16,7 +16,7 @@ class Pet < ApplicationRecord
     array = reviews.pluck(:rating)
     return 0 if array.empty?
 
-    return array.sum / array.size
+    return '%.1f' % (array.sum / array.size)
   end
 
   # def available?
