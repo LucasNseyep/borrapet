@@ -47,7 +47,11 @@ class PlayDatesController < ApplicationController
   end
 
   def edit
+    # @user = current_user
     @play_date = PlayDate.find(params[:id])
+    # return unless @play_date[:user_id] != @user[:id]
+
+    # redirect_to pet_path(@play_date[:pet_id])
   end
 
   def update

@@ -16,17 +16,16 @@ class Pet < ApplicationRecord
     array = reviews.pluck(:rating)
     return 0 if array.empty?
 
-    return '%.1f' % (array.sum / array.size)
+    return format('%.1f', (array.sum / array.size)).to_i
   end
 
   include PgSearch::Model
   pg_search_scope :pet_search,
-  against: [ :name, :pet_type, :bio ],
-  associated_against: {
-    user: [ :first_name, :last_name ]
-  },
-  using: {
-    tsearch: { prefix: true }
-  }
-
+                  against: %i[name pet_type bio],
+                  associated_against: {
+                    user: %i[first_name last_name]
+                  },
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end

@@ -16,7 +16,11 @@ class PetsController < ApplicationController
   end
 
   def edit
+    @user = current_user
     @pet = Pet.find(params[:id])
+    return unless @pet[:user_id] != @user[:id]
+
+    redirect_to pet_path(@pet)
   end
 
   def create
