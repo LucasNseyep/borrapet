@@ -29,10 +29,10 @@
             <% if pet.average == 0 %>
               <%# <p class="card-rating"><i class="fa-solid fa-star"></i></p> %>
               <p class="card-rating"></p>
-                <%= pet.avarage.times do %>
-                  <i class="fa-solid fa-star">
-                <% end %>
             <% else %>
+              <%= pet.average.times do %>
+                <i class="fa-solid fa-star">
+              <% end %>
             <% end %>
           </div>
         </div>
